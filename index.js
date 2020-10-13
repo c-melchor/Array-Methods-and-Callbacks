@@ -13,33 +13,69 @@ console.log('its working');
 (e) Winner of 2014 world cup final */
 
 
+// problem a
+
+let thisYear = fifaData.filter((v) => { 
+    return v.Year === 2014 && v.Stage === 'Final';
+})
+
+console.log(thisYear);
+console.log(thisYear[0]['Home Team Name']);
+
+// problem b
+
+console.log(thisYear[0]['Away Team Name']);
+
+//problem c
+
+console.log(thisYear[0]['Home Team Goals']);
+
+//problem d
+
+console.log(thisYear[0]['Away Team Goals']);
+
+// problem e
+
+console.log(thisYear[0]['Win conditions']);
+
+
+
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-
-    /* code here */
-
+function getFinals(data) {
+    const allFinals = data.filter(d => d.Stage === 'Final');
+    return allFinals;
 };
+
+
+console.log(getFinals(fifaData));
+
+
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+function getYears(data, callback) {
+    return callback(data).map(item => item.Year);    
+}
 
-    /* code here */
+console.log(getYears(fifaData,getFinals));
 
-};
 
-getYears();
+
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
+//use .map()
 
-    /* code here */
+function getWinners(data, getFinalscb){
 
-};
 
-getWinners();
+
+}
+
+
+
+
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
@@ -53,6 +89,9 @@ function getWinnersByYear(/* code here */) {
 };
 
 getWinnersByYear();
+
+
+
 
 /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
