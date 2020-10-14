@@ -101,12 +101,6 @@ function getWinners(data, getFinalscb){
         getWinners(fifaData, getFinals);
         
 
-       
-
-        
-
-
-
 
 
 
@@ -118,22 +112,19 @@ Parameters:
  */
 
 
-//  function getWinnersByYear(data, getWinnerscb, getYearscb){
-//     let winnersByYear = getWinnerscb(data).map(function (item,index){
-//         if(item['Home Team Goals'] > item['Away Team Goals']){
-//         return `In ${getYearscb(data)[index].Year}, ${getWinnerscb(data)[index]['Home Team Name']} won the World Cup!`;
-//         } else {
-//         return `In ${getYearscb(data)[index].Year}, ${getWinnerscb(data)[index]['Away Team Name']} won the World Cup!`;
-//         };
-// });
-//         return winnersByYear;
-//  }
 
-//  console.log(getWinnersByYear(fifaData, getWinners, getYears));
 
-    // console.log(getWinnersByYear(fifaData, getWinners(data, getFinals(data), getYears(fifaData, getFinals(fifaData)))));
 
-// getWinnersByYear();
+ function getWinnersByYear(data, getWinnerscb, getYearscb){
+    
+        return winnersByYear;
+ }
+
+ console.log(getWinnersByYear(fifaData, getWinners, getYears));
+
+    console.log(getWinnersByYear(fifaData, getWinners(data, getFinals(data), getYears(fifaData, getFinals(fifaData)))));
+
+getWinnersByYear();
 
 
 
