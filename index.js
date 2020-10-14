@@ -72,12 +72,14 @@ console.log(getYears(fifaData,getFinals));
 // use .map()
 
 function getWinners(data, getFinalscb){
-    return getFinalscb(data).map(function(item) {
-    return {};
-    // console.log(item ['Away Team Goals']);
+    return getFinalscb(data).map(function(item,index) {
+    if(item['Home Team Goals'] > item['Away Team Goals']){
+        return `Winner is ${getFinalscb(data)[index]['Home Team Name']}`;
+    } else {
+        return `Winner is ${getFinalscb(data)[index]['Away Team Name']}`;
+    }
     });
 }
-
 
 console.log(getWinners(fifaData, getFinals));
 
@@ -85,7 +87,26 @@ console.log(getWinners(fifaData, getFinals));
 
 
 
+// const names = [
+//     'jim',
+//     'here',
+//     'tim'
+// ];
+// const here = [
+//     'there',
+//     'where',
+//     'stare'
+// ];
+
+//  const final = array.map((item, index) => {
+//      return `${item} and ${final}[${index}]`;
+//  })
+
+
+
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
+
+
 
 Parameters: 
  * callback function getWinners
@@ -110,6 +131,9 @@ function getAverageGoals(/* code here */) {
 };
 
 getAverageGoals();
+
+
+
 
 /// STRETCH 🥅 //
 
